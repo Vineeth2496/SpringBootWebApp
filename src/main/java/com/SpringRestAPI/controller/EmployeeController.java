@@ -33,10 +33,31 @@ public class EmployeeController {
 //		return "Employee Details";
 //	}
 	
+	
+	// http://localhost:8080/api/getall
 	@GetMapping("/getall")
 	public List<Employee> getAllEmployee(){
 		List<Employee> lemp=eserv.getEmployee();
 		return lemp;
 	}
 	
+	//http://localhost:8080/api/get/1001
+	@GetMapping("/get/{id}")
+	public Employee getEmployeeById(@PathVariable Integer id) {
+		Employee emp=eserv.getEmployeeById(id);
+		return emp;
+	}
+	
+	// http://localhost:8080/api/update/1001
+	@PutMapping("/update/{id}")
+	public Employee updateEmpById(@PathVariable Integer id, @RequestBody Employee emp) {
+		Employee nEmp=eserv.updateEmployee(id, emp);
+		return nEmp;
+	}
+	// http://localhost:8080/
+	@DeleteMapping("/delete/{id}")
+	public String deleteEmpById(@PathVariable Integer id) {
+		eserv.deleteEmployeeById(id);
+		return "Record Deleted Successfully";
+	}
 }

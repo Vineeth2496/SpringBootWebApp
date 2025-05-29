@@ -29,19 +29,26 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public Employee getEmployeeById(Integer id) {
-		
-		return null;	
+		Optional<Employee> oemp=erepo.findById(id);
+		Employee emp=oemp.get();
+		return emp;	
 	}
 
 	@Override
 	public Employee updateEmployee(Integer id, Employee e) {
+		Optional<Employee> oEmp=erepo.findById(id);
+		Employee nEmp=oEmp.get();
 		
-		return null;
+		nEmp.seteName( e.geteName());
+		nEmp.seteSal( e.geteSal());
+		
+		erepo.save(nEmp);
+		return nEmp;
 	}
 
 	@Override
 	public void deleteEmployeeById(Integer id) {
-		
+		erepo.deleteById(id);
 	}
 
 }
