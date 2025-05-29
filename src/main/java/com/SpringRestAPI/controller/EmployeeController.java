@@ -32,4 +32,8 @@ public class EmployeeController {
 //		return "Employee Details";
 //	}
 	
+	public List<Employee> getAllEmployee(){
+		return null;
+	}
+	
 }
