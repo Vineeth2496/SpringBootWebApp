@@ -20,7 +20,8 @@ import com.SpringRestAPI.service.EmployeeService;
 public class EmployeeController {
 	@Autowired
 	EmployeeService eserv;
-	//http://localhost:9090/api/save
+	
+	//http://localhost:8080/api/save
 	
 	@PostMapping("/save")
 	public String saveEmp(@RequestBody Employee emp) {
@@ -32,8 +33,10 @@ public class EmployeeController {
 //		return "Employee Details";
 //	}
 	
+	@GetMapping("/getall")
 	public List<Employee> getAllEmployee(){
-		return null;
+		List<Employee> lemp=eserv.getEmployee();
+		return lemp;
 	}
 	
 }

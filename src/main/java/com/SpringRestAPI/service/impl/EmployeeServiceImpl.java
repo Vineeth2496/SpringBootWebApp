@@ -22,8 +22,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public List<Employee> getEmployee() {
+		List<Employee> lemp=erepo.findAll();
 		
-		return null;
+		return lemp;
 	}
 
 	@Override
